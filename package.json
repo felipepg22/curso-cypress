@@ -1,0 +1,14 @@
+{
+  "name": "curso-cypress",
+  "version": "1.0.0",
+  "description": "Projeto para estudar o Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Felipe Parizzi Galli",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.2.0"
+  }
+}
