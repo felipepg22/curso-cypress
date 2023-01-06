@@ -12,6 +12,6 @@ module.exports = defineConfig({
     overwrite: true,
     html: true,
     json: false,
-    timestamp: "mmddyyyy_HHMMss"
+    timestamp: "ddmmyyy_HHMMss"
   }
 });
