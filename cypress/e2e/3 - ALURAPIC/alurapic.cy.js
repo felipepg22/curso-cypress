@@ -6,6 +6,8 @@ describe('Login e registro de usuarios alura pic', () => {
 
      })
 
+     const usuarios = require('../../fixtures/usuarios.json');
+
     it('verifica mensagens validacao', () => {
         //Act
         cy.contains('a', 'Register now').click();
@@ -40,15 +42,26 @@ describe('Login e registro de usuarios alura pic', () => {
         cy.contains('ap-vmessage', 'Mininum length is 8').should('be.visible');       
     })
 
-    it.only('fazer login com usuario valido', () => {
+    it('fazer login com usuario valido', () => {
         cy.login('flavio','123');
         cy.contains('a','(Logout)').should('be.visible');
     })
 
-    it.only('fazer login com usuario inválido', () => {
+    it('fazer login com usuario inválido', () => {
         cy.login('felipe','1234');
         cy.on('window:alert', (str) => {
             expect(str).to.equal('Invalid user name or password');
         })
     })
+
+    usuarios.forEach((usuario) => {
+
+        it.only(`registra usuario ${usuario.userName}`, () => {
+            cy.contains('a', 'Register now').click();
+            cy.contains('button', 'Register').click();
+            cy.registra(usuario.email, usuario.fullName, usuario.userName, usuario.password);
+        })
+    })
+
+    
 })
