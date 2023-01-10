@@ -48,6 +48,4 @@ describe('Registro de usuários alura pic', () => {
                cy.registra(usuario.email, usuario.fullName, usuario.userName, usuario.password);
            })
        })
-
-       
 })
